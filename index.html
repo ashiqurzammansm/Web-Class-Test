@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML & CSS MCQ Exam</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f4f4;
+}
+
+.container{
+width:900px;
+margin:auto;
+background:white;
+padding:20px;
+}
+
+.question{
+margin-bottom:20px;
+border-bottom:1px solid #ddd;
+padding-bottom:10px;
+}
+
+button{
+padding:10px 20px;
+background:blue;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+#timer{
+font-size:22px;
+color:red;
+margin-bottom:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>HTML & CSS MCQ Exam (50 Questions)</h2>
+
+<div id="timer">Time Left: 30:00</div>
+
+<form id="examForm">
+<div id="questionArea"></div>
+<button type="submit">Submit Exam</button>
+</form>
+
+<h3 id="result"></h3>
+
+</div>
+
+<script>
+
+var questions = [
+
+{q:"What does HTML stand for?",options:["Hyper Trainer Marking Language","Hyper Text Markup Language","Home Tool Markup Language","Hyperlinks Text Mark"],answer:1},
+
+{q:"Who developed HTML?",options:["Bill Gates","Tim Berners-Lee","Steve Jobs","Mark Zuckerberg"],answer:1},
+
+{q:"Which HTML tag creates a paragraph?",options:["p","div","span","h1"],answer:0},
+
+{q:"Which tag is used to create a hyperlink?",options:["link","a","href","url"],answer:1},
+
+{q:"Which tag is used to display an image?",options:["image","img","picture","src"],answer:1},
+
+{q:"Which tag defines the largest heading?",options:["h6","h4","h1","head"],answer:2},
+
+{q:"Which attribute specifies image path?",options:["href","src","link","path"],answer:1},
+
+{q:"Which HTML element defines a list item?",options:["li","ul","ol","list"],answer:0},
+
+{q:"Which tag creates an unordered list?",options:["ul","ol","li","list"],answer:0},
+
+{q:"Which tag creates an ordered list?",options:["ul","ol","li","list"],answer:1},
+
+{q:"Which tag is used to create a table?",options:["table","tr","td","th"],answer:0},
+
+{q:"Which tag defines a table row?",options:["td","tr","th","row"],answer:1},
+
+{q:"Which tag defines a table cell?",options:["td","tr","th","table"],answer:0},
+
+{q:"Which tag creates a form?",options:["form","input","button","submit"],answer:0},
+
+{q:"Which input type is used for password?",options:["text","password","email","hidden"],answer:1},
+
+{q:"Which attribute makes a field required?",options:["validate","required","must","important"],answer:1},
+
+{q:"Which tag defines page title?",options:["meta","title","head","header"],answer:1},
+
+{q:"Which HTML tag contains metadata?",options:["head","body","footer","meta"],answer:0},
+
+{q:"Which tag defines the body content?",options:["html","head","body","main"],answer:2},
+
+{q:"Which element is semantic?",options:["div","span","section","b"],answer:2},
+
+{q:"Which CSS property changes text color?",options:["font-color","text-color","color","font-style"],answer:2},
+
+{q:"Which CSS property changes background color?",options:["background","background-color","color","bg"],answer:1},
+
+{q:"Which CSS property changes font size?",options:["font-size","text-size","size","font"],answer:0},
+
+{q:"Which CSS property changes font style?",options:["font-style","text-style","style","font-weight"],answer:0},
+
+{q:"Which CSS property makes text bold?",options:["font-style","font-weight","bold","text-weight"],answer:1},
+
+{q:"Which CSS property aligns text?",options:["align","text-align","font-align","align-text"],answer:1},
+
+{q:"Which CSS property adds space inside element?",options:["margin","padding","border","space"],answer:1},
+
+{q:"Which CSS property adds space outside element?",options:["padding","margin","border","spacing"],answer:1},
+
+{q:"Which CSS property adds border?",options:["outline","border","line","frame"],answer:1},
+
+{q:"Which CSS property changes width?",options:["width","size","length","area"],answer:0},
+
+{q:"Which CSS property changes height?",options:["height","size","length","area"],answer:0},
+
+{q:"Which CSS selector targets id?",options:[".","#","*","@"],answer:1},
+
+{q:"Which CSS selector targets class?",options:[".","#","*","@"],answer:0},
+
+{q:"Which CSS property centers block element?",options:["margin:auto","align:center","center","text-align"],answer:0},
+
+{q:"Which HTML tag creates a division?",options:["span","section","div","group"],answer:2},
+
+{q:"Which tag is inline element?",options:["div","span","section","article"],answer:1},
+
+{q:"Which CSS property hides element?",options:["display:none","visibility:hidden","hide","remove"],answer:0},
+
+{q:"Which CSS display type is block?",options:["block","inline","flex","grid"],answer:0},
+
+{q:"Which display keeps elements in same line?",options:["inline","block","grid","flex"],answer:0},
+
+{q:"Which CSS property sets font family?",options:["font","font-family","text-family","family"],answer:1},
+
+{q:"Which HTML tag defines navigation links?",options:["nav","menu","link","navigation"],answer:0},
+
+{q:"Which HTML tag defines footer?",options:["bottom","footer","end","section"],answer:1},
+
+{q:"Which HTML tag defines header?",options:["top","header","head","heading"],answer:1},
+
+{q:"Which attribute opens link in new tab?",options:["blank","target=_blank","new","tab"],answer:1},
+
+{q:"Which CSS unit is relative?",options:["px","cm","em","pt"],answer:2},
+
+{q:"Which CSS property controls element layout?",options:["position","layout","display","align"],answer:2},
+
+{q:"Which CSS property stacks elements?",options:["z-index","index","stack","order"],answer:0},
+
+{q:"Which property controls overflow?",options:["overflow","scroll","flow","wrap"],answer:0},
+
+{q:"Which CSS property controls line spacing?",options:["line-height","text-height","spacing","font-height"],answer:0},
+
+{q:"Which HTML tag inserts line break?",options:["br","break","lb","newline"],answer:0}
+
+];
+
+questions.sort(()=>Math.random()-0.5);
+
+var html="";
+
+questions.forEach(function(q,i){
+
+html+=`<div class="question">
+
+<p>${i+1}. ${q.q}</p>
+
+<label><input type="radio" name="q${i}" value="0" required> ${q.options[0]}</label><br>
+<label><input type="radio" name="q${i}" value="1"> ${q.options[1]}</label><br>
+<label><input type="radio" name="q${i}" value="2"> ${q.options[2]}</label><br>
+<label><input type="radio" name="q${i}" value="3"> ${q.options[3]}</label><br>
+
+</div>`
+
+});
+
+document.getElementById("questionArea").innerHTML=html;
+
+document.getElementById("examForm").onsubmit=function(e){
+
+e.preventDefault();
+
+var score=0;
+
+questions.forEach(function(q,i){
+
+var ans=document.querySelector('input[name="q'+i+'"]:checked');
+
+if(ans && Number(ans.value)===q.answer){
+score++;
+}
+
+});
+
+document.getElementById("result").innerHTML="Your Score: "+score+" / 50";
+
+};
+
+var time=1800;
+
+var timer=setInterval(function(){
+
+var m=Math.floor(time/60);
+var s=time%60;
+
+document.getElementById("timer").innerHTML="Time Left: "+m+":"+(s<10?"0":"")+s;
+
+time--;
+
+if(time<0){
+clearInterval(timer);
+document.getElementById("examForm").requestSubmit();
+}
+
+},1000);
+
+</script>
+
+</body>
+</html>
