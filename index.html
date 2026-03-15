@@ -4,6 +4,7 @@
 <title>HTML & CSS MCQ Exam</title>
 
 <style>
+
 body{
 font-family:Arial;
 background:#f4f4f4;
@@ -43,6 +44,7 @@ font-size:22px;
 color:red;
 margin-bottom:20px;
 }
+
 </style>
 
 </head>
@@ -69,61 +71,119 @@ margin-bottom:20px;
 
 <script>
 
-var questions=[
+var questions = [
 
-{q:"What does HTML stand for?",options:["Hyper Trainer Marking Language","Hyper Text Markup Language","Home Tool Markup Language","Hyperlinks Text Mark"],answer:1},
+{q:"What does HTML stand for?",options:["Hyper Trainer Marking Language","Hyper Text Markup Language","Hyper Text Markdown Language","Home Tool Markup Language"],answer:1},
+{q:"Who invented HTML?",options:["Tim Berners-Lee","Bill Gates","Brendan Eich","Mark Zuckerberg"],answer:0},
+{q:"Which tag creates a paragraph?",options:["p","div","span","h1"],answer:0},
+{q:"Which tag creates hyperlink?",options:["a","link","href","url"],answer:0},
+{q:"Which tag inserts image?",options:["img","picture","image","src"],answer:0},
+{q:"Largest heading tag?",options:["h1","h2","h6","header"],answer:0},
+{q:"HTML document root tag?",options:["html","body","head","main"],answer:0},
+{q:"Tag containing metadata?",options:["head","meta","title","body"],answer:0},
+{q:"Page title tag?",options:["title","meta","header","head"],answer:0},
+{q:"Main page content tag?",options:["body","html","main","content"],answer:0},
 
-{q:"Who developed HTML?",options:["Bill Gates","Tim Berners-Lee","Steve Jobs","Mark Zuckerberg"],answer:1},
+{q:"Line break tag?",options:["br","break","lb","newline"],answer:0},
+{q:"Horizontal line tag?",options:["hr","line","br","border"],answer:0},
+{q:"Tag for unordered list?",options:["ul","ol","li","list"],answer:0},
+{q:"Tag for ordered list?",options:["ul","ol","li","list"],answer:1},
+{q:"Tag for list item?",options:["li","ul","ol","item"],answer:0},
+{q:"Tag for table?",options:["table","tr","td","th"],answer:0},
+{q:"Table row tag?",options:["tr","td","th","row"],answer:0},
+{q:"Table data cell?",options:["td","tr","th","cell"],answer:0},
+{q:"Table header cell?",options:["th","td","tr","table"],answer:0},
+{q:"Tag for form?",options:["form","input","button","submit"],answer:0},
 
-{q:"Which tag is used for paragraph?",options:["p","div","span","h1"],answer:0},
+{q:"Input type for password?",options:["password","text","email","number"],answer:0},
+{q:"Required attribute?",options:["required","validate","must","mandatory"],answer:0},
+{q:"Input type for email?",options:["email","mail","text","address"],answer:0},
+{q:"Button tag?",options:["button","btn","submit","input"],answer:0},
+{q:"Tag for navigation?",options:["nav","menu","navigation","link"],answer:0},
+{q:"Footer tag?",options:["footer","bottom","end","section"],answer:0},
+{q:"Header tag?",options:["header","top","head","heading"],answer:0},
+{q:"Division tag?",options:["div","section","span","block"],answer:0},
+{q:"Inline element?",options:["span","div","section","article"],answer:0},
+{q:"Semantic tag example?",options:["section","div","span","b"],answer:0},
 
-{q:"Which tag creates hyperlink?",options:["link","a","href","url"],answer:1},
+{q:"Bold text tag?",options:["b","strong","bold","em"],answer:0},
+{q:"Italic text tag?",options:["i","em","italic","font"],answer:0},
+{q:"Underline tag?",options:["u","underline","line","text"],answer:0},
+{q:"HTML comment syntax?",options:["<!-- -->","//","##","**"],answer:0},
+{q:"Attribute used for link destination?",options:["href","src","link","target"],answer:0},
+{q:"Image description attribute?",options:["alt","title","desc","text"],answer:0},
+{q:"Open link new tab?",options:["target=_blank","newtab","open","blank"],answer:0},
+{q:"HTML version declaration?",options:["DOCTYPE","HTML5","version","type"],answer:0},
+{q:"Meta charset attribute?",options:["charset","encoding","utf","meta"],answer:0},
+{q:"Tag for audio?",options:["audio","sound","media","mp3"],answer:0},
 
-{q:"Which tag displays image?",options:["img","image","picture","src"],answer:0},
+{q:"Tag for video?",options:["video","media","movie","clip"],answer:0},
+{q:"CSS stands for?",options:["Cascading Style Sheets","Computer Style Sheets","Creative Style System","Colorful Style Sheets"],answer:0},
+{q:"CSS controls?",options:["Design","Database","Server","Logic"],answer:0},
+{q:"CSS syntax example?",options:["selector { property:value; }","selector:value","property:value","selector=value"],answer:0},
+{q:"CSS property for text color?",options:["color","font-color","text-color","style"],answer:0},
+{q:"CSS property background color?",options:["background-color","color","bg","background"],answer:0},
+{q:"CSS property font size?",options:["font-size","text-size","size","font"],answer:0},
+{q:"Font family property?",options:["font-family","font","text-family","family"],answer:0},
+{q:"Make text bold CSS?",options:["font-weight","font-style","text-bold","bold"],answer:0},
+{q:"Italic text CSS?",options:["font-style","font-weight","italic","text-style"],answer:0},
 
-{q:"Which tag defines largest heading?",options:["h6","h4","h1","head"],answer:2},
+{q:"Align text center?",options:["text-align","align","center","font-align"],answer:0},
+{q:"Inside spacing property?",options:["padding","margin","space","border"],answer:0},
+{q:"Outside spacing property?",options:["margin","padding","border","space"],answer:0},
+{q:"Border property?",options:["border","outline","line","frame"],answer:0},
+{q:"Width property?",options:["width","size","length","area"],answer:0},
+{q:"Height property?",options:["height","size","length","area"],answer:0},
+{q:"ID selector symbol?",options:["#",".","*","@"],answer:0},
+{q:"Class selector symbol?",options:[".","#","*","@"],answer:0},
+{q:"Universal selector?",options:["*",".","#","@"],answer:0},
+{q:"Relative unit?",options:["em","px","cm","pt"],answer:0},
 
-{q:"Which attribute specifies image path?",options:["href","src","link","path"],answer:1},
+{q:"Display inline?",options:["inline","block","flex","grid"],answer:0},
+{q:"Display block?",options:["block","inline","grid","flex"],answer:0},
+{q:"Hide element?",options:["display:none","visibility:hidden","hide","remove"],answer:0},
+{q:"Overflow control?",options:["overflow","scroll","flow","wrap"],answer:0},
+{q:"Center block element?",options:["margin:auto","center","align","text-align"],answer:0},
+{q:"Stack order property?",options:["z-index","stack","order","index"],answer:0},
+{q:"Line spacing?",options:["line-height","spacing","text-height","font-height"],answer:0},
+{q:"Cursor property?",options:["cursor","mouse","pointer","click"],answer:0},
+{q:"Opacity property?",options:["opacity","alpha","fade","visibility"],answer:0},
+{q:"Shadow property?",options:["box-shadow","shadow","text-shadow","border-shadow"],answer:0},
 
-{q:"Which tag creates unordered list?",options:["ul","ol","li","list"],answer:0},
+{q:"Rounded corners?",options:["border-radius","radius","round","corner"],answer:0},
+{q:"Position property?",options:["position","layout","align","place"],answer:0},
+{q:"Relative position value?",options:["relative","absolute","fixed","static"],answer:0},
+{q:"Fixed position value?",options:["fixed","absolute","relative","static"],answer:0},
+{q:"Float property?",options:["float","align","position","wrap"],answer:0},
+{q:"Clear float property?",options:["clear","remove","float-clear","overflow"],answer:0},
+{q:"Flexbox display?",options:["display:flex","flexbox","flex","layout:flex"],answer:0},
+{q:"Grid display?",options:["display:grid","gridbox","grid","layout:grid"],answer:0},
+{q:"Gap property?",options:["gap","space","grid-gap","margin-gap"],answer:0},
+{q:"Align flex items?",options:["align-items","align","flex-align","item-align"],answer:0},
 
-{q:"Which tag creates ordered list?",options:["ul","ol","li","list"],answer:1},
+{q:"Flex main axis alignment?",options:["justify-content","align-items","flex-align","item-space"],answer:0},
+{q:"Column layout property?",options:["column-count","columns","grid-columns","flex-column"],answer:0},
+{q:"List style property?",options:["list-style","bullet","list-type","style-list"],answer:0},
+{q:"Remove bullet?",options:["list-style:none","bullet:none","list:none","remove"],answer:0},
+{q:"Max width property?",options:["max-width","width-max","limit-width","width-limit"],answer:0},
+{q:"Min width property?",options:["min-width","width-min","small-width","limit"],answer:0},
+{q:"Background image property?",options:["background-image","image-bg","bg-image","image"],answer:0},
+{q:"Background repeat?",options:["background-repeat","repeat","image-repeat","bg-repeat"],answer:0},
+{q:"Background size?",options:["background-size","bg-size","image-size","size-bg"],answer:0},
+{q:"Transition property?",options:["transition","animate","effect","motion"],answer:0},
 
-{q:"Which tag defines list item?",options:["li","ul","ol","list"],answer:0},
-
-{q:"Which CSS property changes text color?",options:["font-color","text-color","color","font-style"],answer:2},
-
-{q:"Which CSS property changes background color?",options:["background","background-color","color","bg"],answer:1},
-
-{q:"Which CSS property changes font size?",options:["font-size","text-size","size","font"],answer:0},
-
-{q:"Which CSS property sets font family?",options:["font","font-family","text-family","family"],answer:1},
-
-{q:"Which CSS property makes text bold?",options:["font-style","font-weight","bold","text-weight"],answer:1},
-
-{q:"Which CSS selector targets id?",options:[".","#","*","@"],answer:1},
-
-{q:"Which CSS selector targets class?",options:[".","#","*","@"],answer:0},
-
-{q:"Which CSS property adds space outside element?",options:["padding","margin","border","spacing"],answer:1},
-
-{q:"Which CSS property adds space inside element?",options:["margin","padding","border","space"],answer:1},
-
-{q:"Which CSS property hides element?",options:["display:none","visibility:hidden","hide","remove"],answer:0}
+{q:"Animation property?",options:["animation","animate","motion","transition"],answer:0},
+{q:"Visibility property?",options:["visibility","display","view","show"],answer:0},
+{q:"Word spacing?",options:["word-spacing","letter-spacing","text-spacing","line-spacing"],answer:0},
+{q:"Letter spacing?",options:["letter-spacing","word-spacing","font-spacing","text-spacing"],answer:0},
+{q:"Transform text case?",options:["text-transform","text-case","case","font-case"],answer:0},
+{q:"Uppercase value?",options:["uppercase","capitalize","lowercase","upper"],answer:0},
+{q:"Lowercase value?",options:["lowercase","capitalize","uppercase","small"],answer:0},
+{q:"Underline property?",options:["text-decoration","underline","font-line","line"],answer:0},
+{q:"Remove underline?",options:["text-decoration:none","underline:none","remove","line:none"],answer:0},
+{q:"Flex vertical alignment?",options:["align-items","justify-content","align-self","flex-align"],answer:0}
 
 ];
-
-
-for(let i=21;i<=100;i++){
-
-questions.push({
-q:"HTML/CSS Practice Question "+i,
-options:["Option A","Option B","Option C","Option D"],
-answer:0
-});
-
-}
-
 
 questions.sort(()=>Math.random()-0.5);
 
@@ -132,7 +192,6 @@ var html="";
 questions.forEach(function(q,i){
 
 html+=`<div class="question" id="question${i}">
-
 <p>${i+1}. ${q.q}</p>
 
 <label><input type="radio" name="q${i}" value="0" required> ${q.options[0]}</label><br>
@@ -146,7 +205,6 @@ html+=`<div class="question" id="question${i}">
 
 document.getElementById("questionArea").innerHTML=html;
 
-
 document.getElementById("examForm").onsubmit=function(e){
 
 e.preventDefault();
@@ -156,18 +214,13 @@ var score=0;
 questions.forEach(function(q,i){
 
 var selected=document.querySelector('input[name="q'+i+'"]:checked');
-
 var box=document.getElementById("question"+i);
 
 if(Number(selected.value)===q.answer){
-
 score++;
 box.classList.add("correct");
-
 }else{
-
 box.classList.add("wrong");
-
 }
 
 box.innerHTML+=`<p><b>Correct Answer:</b> ${q.options[q.answer]}</p>`;
@@ -177,8 +230,6 @@ box.innerHTML+=`<p><b>Correct Answer:</b> ${q.options[q.answer]}</p>`;
 document.getElementById("result").innerHTML="Your Score: "+score+" / 100";
 
 };
-
-
 
 var time=3000;
 
