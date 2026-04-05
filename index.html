@@ -53,9 +53,9 @@ margin-bottom:20px;
 
 <div class="container">
 
-<h2>HTML & CSS MCQ Exam (100 Questions)</h2>
+<h2>HTML & CSS MCQ Exam (30 Questions)</h2>
 
-<div id="timer">Time Left: 50:00</div>
+<div id="timer">Time Left: 30:00</div>
 
 <form id="examForm">
 
@@ -72,32 +72,6 @@ margin-bottom:20px;
 <script>
 
 var questions = [
-
-{q:"What does HTML stand for?",options:["Hyper Trainer Marking Language","Hyper Text Markup Language","Hyper Text Markdown Language","Home Tool Markup Language"],answer:1},
-{q:"Who invented HTML?",options:["Tim Berners-Lee","Bill Gates","Brendan Eich","Mark Zuckerberg"],answer:0},
-{q:"Which tag creates a paragraph?",options:["p","div","span","h1"],answer:0},
-{q:"Which tag creates hyperlink?",options:["a","link","href","url"],answer:0},
-{q:"Which tag inserts image?",options:["img","picture","image","src"],answer:0},
-{q:"Largest heading tag?",options:["h1","h2","h6","header"],answer:0},
-{q:"HTML document root tag?",options:["html","body","head","main"],answer:0},
-{q:"Tag containing metadata?",options:["head","meta","title","body"],answer:0},
-{q:"Page title tag?",options:["title","meta","header","head"],answer:0},
-{q:"Main page content tag?",options:["body","html","main","content"],answer:0},
-
-{q:"Line break tag?",options:["br","break","lb","newline"],answer:0},
-{q:"Horizontal line tag?",options:["hr","line","br","border"],answer:0},
-{q:"Tag for unordered list?",options:["ul","ol","li","list"],answer:0},
-{q:"Tag for ordered list?",options:["ul","ol","li","list"],answer:1},
-{q:"Tag for list item?",options:["li","ul","ol","item"],answer:0},
-{q:"Tag for table?",options:["table","tr","td","th"],answer:0},
-{q:"Table row tag?",options:["tr","td","th","row"],answer:0},
-{q:"Table data cell?",options:["td","tr","th","cell"],answer:0},
-{q:"Table header cell?",options:["th","td","tr","table"],answer:0},
-{q:"Tag for form?",options:["form","input","button","submit"],answer:0},
-
-{q:"Input type for password?",options:["password","text","email","number"],answer:0},
-{q:"Required attribute?",options:["required","validate","must","mandatory"],answer:0},
-{q:"Input type for emaivar questions = [
 
 {q:"Which HTML tag is used to create a checkbox?",options:["input type='checkbox'","checkbox","check","box"],answer:0},
 {q:"Which tag is used for inserting a line break?",options:["br","lb","break","newline"],answer:0},
@@ -134,7 +108,7 @@ var questions = [
 {q:"Which CSS property is used for animation?",options:["animation","transition","effect","move"],answer:0}
 
 ];
-  
+
 questions.sort(()=>Math.random()-0.5);
 
 var html="";
@@ -177,11 +151,11 @@ box.innerHTML+=`<p><b>Correct Answer:</b> ${q.options[q.answer]}</p>`;
 
 });
 
-document.getElementById("result").innerHTML="Your Score: "+score+" / 100";
+document.getElementById("result").innerHTML="Your Score: "+score+" / "+questions.length;
 
 };
 
-var time=3000;
+var time=1800;
 
 var timer=setInterval(function(){
 
