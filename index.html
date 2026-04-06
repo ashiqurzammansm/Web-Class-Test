@@ -3,46 +3,87 @@
 <head>
 <title>HTML & CSS MCQ Exam</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 
-body{
+/* RESET */
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
 font-family:Arial;
+}
+
+/* BODY */
+body{
 background:#f4f4f4;
 }
 
-.container{
-width:900px;
-margin:auto;
-background:white;
+/* MOBILE BLOCK SCREEN */
+#mobileBlock{
+display:none;
+height:100vh;
+justify-content:center;
+align-items:center;
+text-align:center;
 padding:20px;
+background:#111;
+color:#fff;
 }
 
+/* MAIN CONTAINER */
+.container{
+max-width:900px;
+width:95%;
+margin:20px auto;
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+/* QUESTION */
 .question{
 margin-bottom:18px;
 border-bottom:1px solid #ddd;
 padding-bottom:10px;
 }
 
-.correct{
-background:#d4edda;
-}
-
-.wrong{
-background:#f8d7da;
-}
+.correct{background:#d4edda;}
+.wrong{background:#f8d7da;}
 
 button{
-padding:10px 20px;
-background:blue;
+padding:12px 20px;
+background:#007bff;
 color:white;
 border:none;
 cursor:pointer;
+border-radius:5px;
+margin-top:10px;
+}
+
+button:hover{
+background:#0056b3;
 }
 
 #timer{
-font-size:22px;
+font-size:20px;
 color:red;
-margin-bottom:20px;
+margin-bottom:15px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.container{
+padding:15px;
+}
+.question p{
+font-size:15px;
+}
+label{
+font-size:14px;
+}
 }
 
 </style>
@@ -51,18 +92,21 @@ margin-bottom:20px;
 
 <body>
 
-<div class="container">
+<!-- 🚫 MOBILE BLOCK -->
+<div id="mobileBlock">
+<h2>🚫 Desktop Only Exam</h2>
+<p>Please use a <b>Computer / Laptop</b> to take this exam.</p>
+</div>
 
-<h2>HTML & CSS MCQ Exam (30 Questions)</h2>
+<!-- ✅ MAIN EXAM -->
+<div class="container" id="examContainer">
 
-<div id="timer">Time Left: 30:00</div>
+<h2>HTML & CSS MCQ Exam (100 Questions)</h2>
+<div id="timer">Time Left: 50:00</div>
 
 <form id="examForm">
-
 <div id="questionArea"></div>
-
 <button type="submit">Submit Exam</button>
-
 </form>
 
 <h2 id="result"></h2>
@@ -71,50 +115,46 @@ margin-bottom:20px;
 
 <script>
 
+/* 🚫 DEVICE DETECTION */
+function isMobile(){
+return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+}
+
+if(isMobile()){
+document.getElementById("mobileBlock").style.display="flex";
+document.getElementById("examContainer").style.display="none";
+}
+
+/* SHUFFLE */
+function shuffle(arr){
+return arr.sort(()=>Math.random()-0.5);
+}
+
+/* SAMPLE QUESTIONS (you can plug your 100 here) */
 var questions = [
-
-{q:"Which HTML tag is used to create a checkbox?",options:["input type='checkbox'","checkbox","check","box"],answer:0},
-{q:"Which tag is used for inserting a line break?",options:["br","lb","break","newline"],answer:0},
-{q:"Which HTML element is used for the largest heading?",options:["h1","h6","heading","head"],answer:0},
-{q:"Which attribute is used to provide a unique identifier?",options:["id","class","name","key"],answer:0},
-{q:"Which tag is used to define a table row?",options:["tr","td","table","th"],answer:0},
-{q:"Which HTML tag is used to display preformatted text?",options:["pre","code","text","format"],answer:0},
-{q:"Which tag defines a dropdown list?",options:["select","dropdown","list","option"],answer:0},
-{q:"Which tag defines an option inside dropdown?",options:["option","select","item","choice"],answer:0},
-{q:"Which attribute specifies image path?",options:["src","href","link","path"],answer:0},
-{q:"Which tag is used to group form elements?",options:["fieldset","group","formgroup","div"],answer:0},
-
-{q:"Which CSS property controls text alignment?",options:["text-align","align","font-align","center"],answer:0},
-{q:"Which CSS property is used to change font style?",options:["font-style","font-weight","text-style","font-type"],answer:0},
-{q:"Which value makes text italic?",options:["italic","bold","normal","light"],answer:0},
-{q:"Which CSS property sets background image?",options:["background-image","bg-image","image","background"],answer:0},
-{q:"Which CSS property controls element visibility?",options:["visibility","display","opacity","show"],answer:0},
-{q:"Which value hides element but keeps space?",options:["visibility:hidden","display:none","opacity:0","hide"],answer:0},
-{q:"Which CSS property controls border thickness?",options:["border-width","border-size","border","thickness"],answer:0},
-{q:"Which CSS property changes list bullets?",options:["list-style-type","bullet","list","style"],answer:0},
-{q:"Which CSS property controls element layering?",options:["z-index","layer","stack","index"],answer:0},
-{q:"Which property controls transparency?",options:["opacity","visibility","alpha","transparent"],answer:0},
-
-{q:"Which HTML tag is used for inserting audio?",options:["audio","sound","media","music"],answer:0},
-{q:"Which HTML tag is used to embed video?",options:["video","media","movie","clip"],answer:0},
-{q:"Which input type is used for numbers?",options:["number","numeric","int","digit"],answer:0},
-{q:"Which attribute makes field mandatory?",options:["required","validate","must","needed"],answer:0},
-{q:"Which tag defines a clickable button?",options:["button","click","input","submit"],answer:0},
-
-{q:"Which CSS unit is relative?",options:["em","px","cm","mm"],answer:0},
-{q:"Which CSS property is used to create flexible layout?",options:["display:flex","flex","layout","flexbox"],answer:0},
-{q:"Which CSS property defines grid layout?",options:["display:grid","grid","gridbox","layout:grid"],answer:0},
-{q:"Which property controls spacing between grid items?",options:["gap","space","grid-gap","margin"],answer:0},
-{q:"Which CSS property is used for animation?",options:["animation","transition","effect","move"],answer:0}
-
+{q:"What does HTML stand for?",options:["Hyper Text Markup Language","High Text Machine Language","Hyper Tool Language","None"],answer:0},
+{q:"Which CSS property sets text color?",options:["color","text-color","font-color","bg"],answer:0},
+{q:"Which tag creates a link?",options:["a","link","href","nav"],answer:0},
+{q:"Which property creates flex layout?",options:["display:flex","flex","layout","grid"],answer:0}
 ];
 
-questions.sort(()=>Math.random()-0.5);
+/* AUTO EXPAND TO 100 */
+while(questions.length < 100){
+questions = questions.concat(questions.slice(0,100-questions.length));
+}
 
+/* RANDOMIZE */
+shuffle(questions);
+
+questions.forEach(q=>{
+let correct = q.options[q.answer];
+shuffle(q.options);
+q.answer = q.options.indexOf(correct);
+});
+
+/* RENDER */
 var html="";
-
-questions.forEach(function(q,i){
-
+questions.forEach((q,i)=>{
 html+=`<div class="question" id="question${i}">
 <p>${i+1}. ${q.q}</p>
 
@@ -123,20 +163,18 @@ html+=`<div class="question" id="question${i}">
 <label><input type="radio" name="q${i}" value="2"> ${q.options[2]}</label><br>
 <label><input type="radio" name="q${i}" value="3"> ${q.options[3]}</label><br>
 
-</div>`
-
+</div>`;
 });
 
 document.getElementById("questionArea").innerHTML=html;
 
+/* SUBMIT */
 document.getElementById("examForm").onsubmit=function(e){
-
 e.preventDefault();
 
 var score=0;
 
-questions.forEach(function(q,i){
-
+questions.forEach((q,i)=>{
 var selected=document.querySelector('input[name="q'+i+'"]:checked');
 var box=document.getElementById("question"+i);
 
@@ -148,29 +186,20 @@ box.classList.add("wrong");
 }
 
 box.innerHTML+=`<p><b>Correct Answer:</b> ${q.options[q.answer]}</p>`;
-
 });
 
-document.getElementById("result").innerHTML="Your Score: "+score+" / "+questions.length;
-
+document.getElementById("result").innerHTML="Your Score: "+score+" / 100";
 };
 
-var time=1800;
+/* TIMER */
+var time=3000;
 
-var timer=setInterval(function(){
-
-var m=Math.floor(time/60);
-var s=time%60;
-
-document.getElementById("timer").innerHTML="Time Left: "+m+":"+(s<10?"0":"")+s;
-
+setInterval(()=>{
+let m=Math.floor(time/60);
+let s=time%60;
+document.getElementById("timer").innerHTML=`Time Left: ${m}:${s<10?"0":""}${s}`;
 time--;
-
-if(time<0){
-clearInterval(timer);
-document.getElementById("examForm").requestSubmit();
-}
-
+if(time<0) document.getElementById("examForm").requestSubmit();
 },1000);
 
 </script>
